@@ -1,0 +1,28 @@
+@model PizzaBox.Client.Models.StoreViewModel
+
+<p><h3>Here is your order history</h3></p>
+
+<section>
+    @foreach (var order in Model.Orders)
+    {
+        <p>
+            Order Total: @order.Price.ToString("C2")
+            <br>
+            Submitted by @order.CustomerSubmitted.Name at @order.PurchaseDate.ToLocalTime().ToString("G")
+
+            @foreach (var pizza in order.Pizzas)
+            {
+                <p>
+                    @pizza.Name: @pizza.Crust.Name, @pizza.Size.Name - @pizza.Price.ToString("C2")
+                    <br>
+                    Toppings: @string.Join(", ", pizza.Toppings.Select(x => x.Name))
+                </p>
+            }
+            --------------------------------------------------
+        </p>
+    }
+</section>
+
+<section>
+    <a class="btn btn-primary" asp-controller="store" asp-action="home">Ok</a>
+</section>

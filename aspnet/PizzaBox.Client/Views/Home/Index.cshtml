@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section class="text-center">
+    <h1 class="display-4">Welcome to Pizza Box!</h1>
+    <p><h4>Are you a Customer or Store?</h4></p>
+    <a asp-controller="customer" asp-action="home" class="btn btn-primary">Customer</a>
+    <a asp-controller="store" asp-action="home" class="btn btn-secondary">Store</a>
+</section>
